@@ -16,7 +16,7 @@ url='https://account.meraki.com/secure/login/dashboard_login'
 
 
 
-#dashboard_name='Boyd MR33'
+#dashboard_name=''
 def process(driver,dashboard_name):
     print(f'processing {dashboard_name}')
     input_text=driver.find_element_by_xpath('//*[@name="magicSearchQuery"]')
@@ -86,16 +86,16 @@ def main():
 
     #waiting for 2 step authentication code starts here
     wait = WebDriverWait(driver, 30000)
-    element = wait.until(EC.visibility_of_element_located((By.XPATH,"//*[(text()='Boyd')]")))
+    element = wait.until(EC.visibility_of_element_located((By.XPATH,"//*[(text()='')]")))
     print(element.text)
     #waiting for 2 step authentication code ends here
 
-    #clicking on Boyd element
+    #clicking on the org element
     time.sleep(2)
-    driver.find_element_by_xpath("//*[(text()='Boyd')]").click()
+    driver.find_element_by_xpath("//*[(text()='')]").click()
     time.sleep(2)
     # element = wait.until(EC.visibility_of_element_located((By.XPATH, '//*[@name="magicSearchQuery"]')))
-    #clicking on Boyd element ends here
+    #clicking on ** element ends here
 
     network=pd.read_csv("Network.csv")
     values=network['Network Name'].values
